@@ -1,0 +1,10 @@
+body{
+  background-color: lightblue;
+}
+body table tbody tr td:nth-child(5), body table tbody tr td:nth-child(6){
+  color: blue;
+  cursor: pointer;
+}
+#add-client-form{
+  display: none;
+}
