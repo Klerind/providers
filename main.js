@@ -41,7 +41,6 @@ function deleteRow(event) {
   //gets data from json/inputs.json file
     function getData(data) {
         const deleteClient = JSON.parse(data.responseText);
-        sendAjaxRequest("php/_saveClient.php",saveClient);
         deleteClient.clients.splice(event.parentNode.rowIndex - 1,1);
         const saveClient = JSON.stringify(deleteClient);
         //calls saveClientData function and passes saveClient variable into it
@@ -49,8 +48,9 @@ function deleteRow(event) {
     }
 //calls getAjaxRequest function from js/_ajaxFunctions.js file and passes a string url and a function name into it
 getAjaxRequest("json/inputs.json",getData);
-//sends updete data from the editted row to php/_delete.php file
+//sends updeted data from the editted row to php/_delete.php file
 function saveClientData(saveClient) {
+    sendAjaxRequest("php/_saveClient.php",saveClient);
     }
     //reloads page after 3 second
     setTimeout(()=>{
